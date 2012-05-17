@@ -346,6 +346,10 @@ ifeq ($(HAVE_SELINUX),true)
 SELINUX_DEPENDS := sepolicy file_contexts seapp_contexts property_contexts selinux-network.sh
 endif
 
+ifeq ($(HAVE_MAC),true)
+SELINUX_DEPENDS += mac_permissions.xml
+endif
+
 # We just build this directly to the install location.
 INSTALLED_RAMDISK_TARGET := $(BUILT_RAMDISK_TARGET)
 $(INSTALLED_RAMDISK_TARGET): $(MKBOOTFS) $(INTERNAL_RAMDISK_FILES) $(SELINUX_DEPENDS) | $(MINIGZIP)
