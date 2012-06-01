@@ -346,9 +346,9 @@ ifeq ($(HAVE_SELINUX),true)
 SELINUX_DEPENDS := sepolicy file_contexts seapp_contexts property_contexts selinux-network.sh
 endif
 
-ifeq ($(HAVE_MAC),true)
+#ifeq ($(HAVE_MAC),true)
 SELINUX_DEPENDS += mac_permissions.xml
-endif
+#endif
 
 # We just build this directly to the install location.
 INSTALLED_RAMDISK_TARGET := $(BUILT_RAMDISK_TARGET)
