@@ -9,10 +9,16 @@ else
 ABP:=$(PWD)/$(HOST_OUT_EXECUTABLES)
 endif
 
-# Add the toolchain bin dir if it actually exists
+# Add the ARM toolchain bin dir if it actually exists
 ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-4.6/bin),)
 	# this should be copied to HOST_OUT_EXECUTABLES instead
 	ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-4.6/bin
+endif
+
+# Add the x86 toolchain bin dir if it actually exists
+ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/x86/i686-linux-android-4.6/bin),)
+	# this should be copied to HOST_OUT_EXECUTABLES instead
+	ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/x86/i686-linux-android-4.6/bin
 endif
 ANDROID_BUILD_PATHS := $(ABP)
 ANDROID_PREBUILTS := prebuilt/$(HOST_PREBUILT_TAG)
