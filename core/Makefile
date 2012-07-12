@@ -353,12 +353,8 @@ INTERNAL_RAMDISK_FILES := $(filter $(TARGET_ROOT_OUT)/%, \
 BUILT_RAMDISK_TARGET := $(PRODUCT_OUT)/ramdisk.img
 
 ifeq ($(HAVE_SELINUX),true)
-SELINUX_DEPENDS := sepolicy file_contexts seapp_contexts property_contexts selinux-network.sh
+SELINUX_DEPENDS := sepolicy file_contexts seapp_contexts property_contexts mac_permissions.xml selinux-network.sh
 endif
-
-#ifeq ($(HAVE_MAC),true)
-SELINUX_DEPENDS += mac_permissions.xml
-#endif
 
 # We just build this directly to the install location.
 INSTALLED_RAMDISK_TARGET := $(BUILT_RAMDISK_TARGET)
