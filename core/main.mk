@@ -84,7 +84,7 @@ include $(BUILD_SYSTEM)/config.mk
 # be generated correctly
 include $(BUILD_SYSTEM)/cleanbuild.mk
 
-VERSION_CHECK_SEQUENCE_NUMBER := 2
+VERSION_CHECK_SEQUENCE_NUMBER := 3
 -include $(OUT_DIR)/versions_checked.mk
 ifneq ($(VERSION_CHECK_SEQUENCE_NUMBER),$(VERSIONS_CHECKED))
 
@@ -166,11 +166,33 @@ ifneq ($(findstring llvm-gcc,$(GCC_REALPATH)),)
   $(warning * gcc is linked to llvm-gcc which will *)
   $(warning * not create a useable emulator.       *)
   $(warning ****************************************)
+  BUILD_EMULATOR := false
+else
+  BUILD_EMULATOR := true
+endif
+# When building on Leopard or above, we need to use the 10.4 SDK
+# or the generated binary will not run on Tiger.
+darwin_version := $(strip $(shell sw_vers -productVersion))
+ifneq ($(filter 10.1 10.2 10.3 10.1.% 10.2.% 10.3.% 10.4 10.4.%,$(darwin_version)),)
+    $(error Building the Android emulator requires OS X 10.5 or above)
+endif
+ifneq ($(filter 10.5 10.5.% 10.6 10.6.%,$(darwin_version)),)
+    # We are on Leopard or Snow Leopard
+    MSDK=10.5
+else
+    # We are on Lion or beyond, and 10.6 SDK is the minimum in Xcode 4.x
+   MSDK=10.6
+endif
+MACOSX_SDK := /Developer/SDKs/MacOSX$(MSDK).sdk
+ifeq ($(strip $(wildcard $(MACOSX_SDK))),)
+  BUILD_EMULATOR := false
 endif
 endif
 
 $(shell echo 'VERSIONS_CHECKED := $(VERSION_CHECK_SEQUENCE_NUMBER)' \
         > $(OUT_DIR)/versions_checked.mk)
+$(shell echo 'BUILD_EMULATOR := $(BUILD_EMULATOR)' \
+        >> $(OUT_DIR)/versions_checked.mk)
 endif
 
 # These are the modifier targets that don't do anything themselves, but
