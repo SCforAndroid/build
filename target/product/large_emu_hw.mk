@@ -35,6 +35,7 @@ PRODUCT_PACKAGES := \
     Music \
     Provision \
     QuickSearchBox \
+    SEAndroidAdmin \
     SEAndroidManager \
     Settings \
     Sync \
