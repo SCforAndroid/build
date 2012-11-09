@@ -138,6 +138,7 @@ PRODUCT_PACKAGES += \
     seapp_contexts \
     property_contexts \
     mac_permissions.xml \
+    mmac_types.xml \
     selinux-network.sh \
     SEAndroidManager
 
