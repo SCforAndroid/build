@@ -141,7 +141,8 @@ PRODUCT_PACKAGES += \
     mmac_types.xml \
     intent_mac.xml \
     selinux-network.sh \
-    SEAndroidManager
+    SEAndroidManager \
+    SEAndroidAdmin
 
 # host-only dependencies
 ifeq ($(WITH_HOST_DALVIK),true)
