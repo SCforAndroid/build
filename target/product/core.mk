@@ -139,7 +139,8 @@ PRODUCT_PACKAGES += \
     property_contexts \
     mac_permissions.xml \
     selinux-network.sh \
-    SEAndroidAdmin
+    SEAndroidAdmin \
+    auditd
 
 # host-only dependencies
 ifeq ($(WITH_HOST_DALVIK),true)
