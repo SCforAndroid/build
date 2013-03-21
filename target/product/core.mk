@@ -135,6 +135,7 @@ PRODUCT_PACKAGES += \
     seapp_contexts \
     property_contexts \
     mac_permissions.xml \
+    content_permissions.xml \
     mmac_types.xml \
     intent_mac.xml \
     selinux-network.sh \
