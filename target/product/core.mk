@@ -122,6 +122,7 @@ PRODUCT_PACKAGES += \
     libz \
     make_ext4fs \
     mdnsd \
+    okhttp \
     requestsync \
     screencap \
     sensorservice \
@@ -145,6 +146,7 @@ ifeq ($(WITH_HOST_DALVIK),true)
         apache-xml-hostdex \
         bouncycastle-hostdex \
         core-hostdex \
+        okhttp-hostdex \
         libcrypto \
         libexpat \
         libicui18n \
