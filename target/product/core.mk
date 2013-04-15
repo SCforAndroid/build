@@ -137,7 +137,7 @@ PRODUCT_PACKAGES += \
     property_contexts \
     mac_permissions.xml \
     selinux-network.sh \
-    SEAndroidAdmin \
+    SEAdmin \
     auditd
 
 # host-only dependencies
