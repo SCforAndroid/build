@@ -140,7 +140,7 @@ PRODUCT_PACKAGES += \
     mmac_types.xml \
     intent_mac.xml \
     selinux-network.sh \
-    SEAndroidAdmin \
+    SEAdmin \
     auditd
 
 # host-only dependencies
