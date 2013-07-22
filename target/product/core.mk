@@ -144,6 +144,10 @@ PRODUCT_PACKAGES += \
     SEAdmin \
     auditd
 
+#SCForAndroid packages
+PRODUCT_PACKAGES += \
+    SCManager
+
 # host-only dependencies
 ifeq ($(WITH_HOST_DALVIK),true)
     PRODUCT_PACKAGES += \
