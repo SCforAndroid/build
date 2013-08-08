@@ -11,6 +11,7 @@ testkey -- a generic key for packages that do not otherwise specify a key.
 platform -- a test key for packages that are part of the core platform.
 shared -- a test key for things that are shared in the home/contacts process.
 media -- a test key for packages that are part of the media/download system.
+container -- a test key for packages that are part of the container.
 
 These test keys are used strictly in development, and should never be assumed
 to convey any sort of validity.  When $BUILD_SECURE=true, the code should not
